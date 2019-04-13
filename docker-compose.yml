@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  mysql-docker-service-1:
+    container_name: srinivas-container
+    image: mysql:latest
+    ports:
+      - 2012:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=vasu
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=mysql
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d/
+  spring-boot-hibernate-service-1:
+    container_name: srinivas-container-2
+    image: srinivas-image
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    links:
+      - mysql-docker-service-1
+    ports:
+      - 8090:8080

@@ -1,0 +1,17 @@
+
+1)mvn clean install
+
+2)docker-compose up
+
+3)
+
+	http://localhost:8090/user/articles         (GET)
+
+	http://localhost:8090/user/article/3        (GET)
+
+	http://localhost:8090/user/article/         (POST)
+	  {
+	  "article_id":"4",
+	  "title":"Cassandra",
+	  "category":"ColumnDB"
+	  }
